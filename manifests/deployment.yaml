@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elearn-frontend-deployment
+  labels:
+    app: elearn-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: elearn-frontend
+  template:
+    metadata:
+      labels:
+        app: elearn-frontend
+    spec:
+      containers:
+      - name: elearn-frontend
+        image: satiacr-fsbkbzcjfub3bea4.azurecr.io/elearn-backend:latest
+        ports:
+        - containerPort: 80
